@@ -1,0 +1,40 @@
+Analizing "playcrossword" usage of tables.
+1. I would assume that the website uses a single table to store the following:
+
+	"Puzzles"
+	a. The index of each word(int).
+	b. The question (or the mystery definition)(text).
+	c. The answer(text).
+	d. The index on the board of the first letter(int).
+	e. The index on the board of the last letter(int).
+	f. The crossword index(int).
+	g. The direction of the writing - D for down, A for across (text).
+In addition, i would use a table to store the following:
+	"Board"
+	a. The board index(int).
+	b. The amount of puzzles(int).
+	c. The size of the board (int).
+In such way that a single table record would look like this:
+	("Puzzles" example) 1.|Loafing|IDLE|0|3|8310|A
+	("Board" example) 8310|55|13
+The resoning behind using a table to store those specifing tpyes of information: 
+	a. The table allows linked variables to be organized together.
+	b. The table allows common variables (such as index and question,
+	   for example) to be displayed together.
+	c. The table allows the creation of relations between objects (for example,
+	   the board index appears in both "Puzzles" and "Board".
+2. I do not find any advanteges in using a table to resemble the following:
+	a. The puzzle score.
+	b. The blacked out squares in the board.
+As neither of them can be broken down into serialized elements.
+
+4. The commamds I used while building the database:
+	- sqlite3 CrossWord
+	- CREATE TABLE
+	- ALTER TABLE
+	- JOINS
+	- .tables
+	- .schema
+	- SELECT * FROM
+	- INSERT INTO
+	- .quit
